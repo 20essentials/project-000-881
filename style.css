@@ -1,0 +1,63 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+}
+
+a,
+button,
+img {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  height: 500vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  background-color: cadetblue;
+  view-timeline: --section;
+
+  .content {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-image);
+    animation: move linear both;
+    animation-timeline: --section;
+    background-size: cover;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
